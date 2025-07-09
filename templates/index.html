@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🏠 Real Estate Price Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+  margin: 0;
+  padding: 0;
+  background-image: url("/static/background_.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(6px);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 6px;
+      background: #f1f5f9;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 30px;
+      background: #4f46e5;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 12px;
+      text-align: center;
+      background: #bbf7d0;
+      border-left: 5px solid #22c55e;
+      color: #14532d;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>🏠 Real Estate Price Predictor</h1>
+    <h3>Estimate the house price based on property features</h3>
+
+    <form action="/predict" method="POST">
+      <label>Under Construction (0 or 1)</label>
+      <input type="number" name="under_construction" min="0" max="1" required>
+
+      <label>RERA Approved (0 or 1)</label>
+      <input type="number" name="rera" min="0" max="1" required>
+
+      <label>Number of BHK</label>
+      <input type="number" name="bhk" min="1" required>
+
+      <label>Area (in sqft)</label>
+      <input type="number" name="sqft" min="100" required>
+
+      <label>Ready to Move (0 or 1)</label>
+      <input type="number" name="ready_to_move" min="0" max="1" required>
+
+      <label>Resale (0 or 1)</label>
+      <input type="number" name="resale" min="0" max="1" required>
+
+      <label>Longitude</label>
+      <input type="number" name="longitude" step="any" required>
+
+      <label>Latitude</label>
+      <input type="number" name="latitude" step="any" required>
+
+      <label>Dealer (0 or 1)</label>
+      <input type="number" name="dealer" min="0" max="1" required>
+
+      <label>Owner (0 or 1)</label>
+      <input type="number" name="owner" min="0" max="1" required>
+
+      <button type="submit">🔍 Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
+
