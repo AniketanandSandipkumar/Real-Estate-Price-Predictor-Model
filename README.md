@@ -134,7 +134,7 @@ Real-Estate-Price-Predictor/<br>
 
 **Aniketanand Sandipkumar**  
 📧 Email: [your-email@example.com]  
-🔗 GitHub: [github.com/AniketanandSandipkumar](https://github.com/AniketanandSandipkumar)
+🔗 GitHub: [github.com/AniketanandSandipkumar](https://github.com/AniketanandSandipkumar)<br>
 [App link](https://real-estate-price-predictor-model.onrender.com/)
 ---
 
